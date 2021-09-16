@@ -1,4 +1,4 @@
-from git.firstblog.blog.forms import CommentForm
+from blog.forms import CommentForm
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.views.generic.edit import DeleteView
 from blog.forms import PostForm
