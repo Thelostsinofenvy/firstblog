@@ -1,3 +1,4 @@
+from django.urls.base import reverse_lazy
 from blog.forms import CommentForm
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.views.generic.edit import DeleteView
@@ -24,8 +25,8 @@ class PostListView(ListView):
     model = Post
 
     # queryset to get the posts published in decreasing order.
-    def get_queryset():
-        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    def get_queryset(self):
+        return Post.objects.filter(publish_date__lte=timezone.now()).order_by('-publish_date')
 
 
 class PostDetailView(DetailView):
@@ -36,7 +37,7 @@ class PostDetailView(DetailView):
 
 class CreatePostView(LoginRequiredMixin, CreateView):
     login_url = 'login/'
-    REDIRECT_FIELD_NAME = 'blog/post_detail.html'
+    redirect_field_name = 'blog/post_detail.html'
     form_class = PostForm
     model = Post
 

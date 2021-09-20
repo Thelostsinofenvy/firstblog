@@ -56,7 +56,7 @@
         <nav
           class="
             flex
-            title-font
+            titl e-font
             font-medium
             items-center
             text-gray-900
@@ -64,12 +64,10 @@
             md:mb-0
           "
         >
-          <a
-            href="{% url 'post_list' %}"
-            class="mr-5 hover:text-blue-900 text-2xl"
+          <a class="mr-5 hover:text-blue-900 text-2xl"  href="{% url 'blog:post_list' %}"
             >My Blog</a
           >
-          <a href="={% url 'about' %}" class="mr-5 hover:text-blue-900 text-xl"
+          <a href="{% url 'blog:about' %}" class="mr-5 hover:text-blue-900 text-xl"
             >About</a
           >
           <a
@@ -91,12 +89,12 @@
           "
         >
           <a
-            href="{% url 'post_new' %}"
+            href="{% url 'blog:post_new' %}"
             class="mr-5 hover:text-blue-900 text-lg"
             >New Post</a
           >
           <a
-            href="{% url 'post_draft_list' %}"
+            href="{% url 'blog:post_draft_list' %}"
             class="mr-5 hover:text-blue-900 text-lg"
             >Drafts</a
           >
