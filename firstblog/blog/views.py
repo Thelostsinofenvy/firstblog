@@ -16,7 +16,8 @@ from django.urls import reverse_lazy
 
 
 class AboutView(TemplateView):
-    template_name = 'base/about.html'
+    template_name = 'blog/about.html'
+
 
 # list of posts
 
@@ -67,8 +68,8 @@ class DraftListView(LoginRequiredMixin, ListView):
 
     # queryset to get all the non -published posts
 
-    def get_queryset():
-        return Post.objects.filter(published_date__isnull=True).order_by('date_created')
+    def get_queryset(self):
+        return Post.objects.filter(publish_date__isnull=True).order_by('date_created')
 
 
 ##################################################
@@ -112,7 +113,3 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('post_detail', pk=post_pk)
-
-
-def test(request):
-    return render(request, "blog/base.html")

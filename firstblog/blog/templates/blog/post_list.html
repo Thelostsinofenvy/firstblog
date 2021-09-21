@@ -1,1 +1,15 @@
+{% extends "blog/base.html" %}
+<h1>posts!</h1>
+{% block content %}
 
+<div class="md:container md:mx-auto">
+  {% for post in post_list %}
+  <div class="md:container md:mx-auto">
+    <h1>
+      <a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a>
+    </h1>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}

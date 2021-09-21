@@ -1,4 +1,6 @@
 {% load static %}
+{% load tailwind_tags %}
+{% tailwind_css %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,28 +18,24 @@
       charset="utf-8"
     />
 
-    <!-- fonts -->
+    <!-- fonts --> 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
       rel="stylesheet"
-    />
+    /> 
+  <!--test font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet">
 
-    <!-- bootstrap v5.1
-   
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-      crossorigin="anonymous"
-    />
-    -->
+
     <!-- tailwindCSS -->
-    <link
+    <!-- <link
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
-    />
+    /> -->
   </head>
   <body>
     <header class="text-gray-700 body-font border-b border-gray-200">
@@ -64,11 +62,10 @@
             md:mb-0
           "
         >
-          <a class="mr-5 hover:text-blue-900 text-2xl"  href="{% url 'blog:post_list' %}"
+          <a class="mr-5 hover:text-blue-900 text-2xl  "  href="{% url 'blog:post_list' %}"
             >My Blog</a
           >
-          <a href="{% url 'blog:about' %}" class="mr-5 hover:text-blue-900 text-xl"
-            >About</a
+          <a href="{% url 'blog:about' %}" class="mr-5 hover:text-blue-900 text-xl">About</a
           >
           <a
             href="https://linkedin.com"
