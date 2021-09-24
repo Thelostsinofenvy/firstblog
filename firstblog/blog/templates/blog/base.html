@@ -1,9 +1,10 @@
 {% load static %}
-{% load tailwind_tags %}
-{% tailwind_css %}
+{% load tailwind_tags %} 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% tailwind_css %}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,6 +19,8 @@
       charset="utf-8"
     />
 
+    <link rel="stylesheet" href="{% static 'styles.css' %} ">
+
     <!-- fonts --> 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,49 +33,44 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet">
 
-
-    <!-- tailwindCSS -->
-    <!-- <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    /> -->
   </head>
   <body>
-    <header class="text-gray-700 body-font border-b border-gray-200">
+    <header class="text-grey-700 body-font border-b border-gray-300 bg-gradient-to-r from-green-400 to-blue-500 shadow-md">
       {% if user.is_authenticated %}
       <div
-        class="
-          container
+        class="container
           mx-auto
           flex flex-wrap
           p-5
           flex-col
           md:flex-row
           items-center
+          text-grey-500
+          
         "
       >
         <nav
           class="
             flex
-            titl e-font
+            title-font
             font-medium
             items-center
-            text-gray-900
             mb-4
             md:mb-0
+            
           "
         >
-          <a class="mr-5 hover:text-blue-900 text-2xl  "  href="{% url 'blog:post_list' %}"
+          <a class="mr-5 hover:text-purple-900 text-3xl "  href="{% url 'blog:post_list' %}"
             >My Blog</a
           >
-          <a href="{% url 'blog:about' %}" class="mr-5 hover:text-blue-900 text-xl">About</a
+          <a href="{% url 'blog:about' %}" class="mr-5 hover:text-purple-900 text-xl">About</a
           >
           <a
             href="https://linkedin.com"
-            class="mr-5 hover:text-blue-900 text-xl"
+            class="mr-5 hover:text-purple-500 text-xl"
             >LinkedIn</a
           >
-          <a href="https://github.com" class="mr-5 hover:text-blue-900 text-xl"
+          <a href="https://github.com" class="mr-5 hover:text-purple-500 text-xl"
             >Github</a
           >
         </nav>
@@ -87,22 +85,22 @@
         >
           <a
             href="{% url 'blog:post_new' %}"
-            class="mr-5 hover:text-blue-900 text-lg"
+            class="mr-5 hover:text-green-500 text-xl"
             >New Post</a
           >
           <a
             href="{% url 'blog:post_draft_list' %}"
-            class="mr-5 hover:text-blue-900 text-lg"
+            class="mr-5 hover:text-green-500 text-xl"
             >Drafts</a
           >
-          <a href="{% url 'logout' %}" class="mr-5 hover:text-blue-900 text-lg"
+          <a href="{% url 'logout' %}" class="mr-5 hover:text-green-500 text-xl"
             >Logout</a
           >
-          <a href="#" class="mr-5 hover:text-blue-900 text-lg"
+          <a href="#" class="mr-5 hover:text-green-500 text-xl"
             >Welcome:{{user.username}}</a
           >
           {% else %}
-          <a href="{% url 'login' %}" class="mr-5 hover:text-blue-900 text-lg"
+          <a href="{% url 'login' %}" class="mr-5 hover:text-green-500 text-lg"
             ><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
