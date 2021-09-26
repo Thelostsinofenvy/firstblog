@@ -12,7 +12,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     Text = models.TextField()
     date_created = models.DateTimeField(
-        default=timezone.datetime.now(), editable=True)
+        default=timezone.datetime.now, editable=True)
 
     # can be published later, so it doesn't need the parameter datetime.now()
     publish_date = models.DateTimeField(blank=True, null=True)
@@ -31,14 +31,14 @@ class Post(models.Model):
 
     # returns to post detail page.
     def get_absolute_url(self):
-        return reverse("post_detail", kwargs={"pk": self.pk})
+        return reverse("blog:post_detail", kwargs={"pk": self.pk})
 
 
 class Comment(models.Model):
     posted_comments = models.ForeignKey(
         Post, related_name='comments', on_delete=CASCADE)  # comments for the posts.
-    author = models.CharField(max_length=200)
-    Text = models.TextField()
+    author = models.CharField(max_length=200, null=True)
+    Text = models.TextField(null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     approved_comment = models.BooleanField(default=False)
 
@@ -48,4 +48,4 @@ class Comment(models.Model):
             self.save()
 
     def get_absolute_url(self):
-        return reverse("post_list")
+        return reverse("blog:post_list")

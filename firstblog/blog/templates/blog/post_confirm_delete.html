@@ -1,1 +1,9 @@
-{% extends "blog/base.html" %} {% block content %} {% endblock content %}
+{% extends "blog/base.html" %} {% block content %}
+<form action="" method="post">
+  {% csrf_token %}
+  <p>Are you sure you want to delete {{object}} ?</p>
+
+  <input class="" type="submit" value="Confirm" />
+</form>
+
+{% endblock content %}

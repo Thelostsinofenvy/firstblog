@@ -56,7 +56,7 @@ class UpdatePostView(LoginRequiredMixin, UpdateView):
 
 class DeletePostView(LoginRequiredMixin, DeleteView):
     model = Post
-    success_url = reverse_lazy('post_list')
+    success_url = reverse_lazy('blog:post_list')
 
 # draft list for the non-published posts
 
@@ -83,10 +83,10 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            return redirect("post_detail", pk=post.pk)
-        else:
-            form = CommentForm()
-            return render('blog/comment_form.html', {'form': form})
+            return redirect("blog:post_detail", pk=post.pk)
+    else:
+        form = CommentForm()
+        return render(request, 'blog/comment_form.html', {'form': form})
 
 # approving comments
 

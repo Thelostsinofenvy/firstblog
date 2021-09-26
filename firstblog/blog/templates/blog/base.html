@@ -1,6 +1,4 @@
-{% load static %}
-{% load tailwind_tags %} 
-
+{% load static %} {% load tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,26 +17,39 @@
       charset="utf-8"
     />
 
-    <link rel="stylesheet" href="{% static 'styles.css' %} ">
+    <link rel="stylesheet" href="{% static 'styles.css' %} " />
 
-    <!-- fonts --> 
+    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
       rel="stylesheet"
-    /> 
-  <!--test font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet">
-
+    />
+    <!--test font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <header class="text-grey-700 body-font border-b border-gray-300 bg-gradient-to-r from-green-400 to-blue-500 shadow-md">
+    <header
+      class="
+        text-grey-700
+        body-font
+        border-b border-gray-300
+        bg-gradient-to-r
+        from-green-400
+        to-blue-500
+        shadow-md
+      "
+    >
       {% if user.is_authenticated %}
       <div
-        class="container
+        class="
+          container
           mx-auto
           flex flex-wrap
           p-5
@@ -46,31 +57,27 @@
           md:flex-row
           items-center
           text-grey-500
-          
         "
       >
-        <nav
-          class="
-            flex
-            title-font
-            font-medium
-            items-center
-            mb-4
-            md:mb-0
-            
-          "
-        >
-          <a class="mr-5 hover:text-purple-900 text-3xl "  href="{% url 'blog:post_list' %}"
+        <nav class="flex title-font font-medium items-center mb-4 md:mb-0">
+          <a
+            class="mr-5 hover:text-purple-900 text-3xl"
+            href="{% url 'blog:post_list' %}"
             >My Blog</a
           >
-          <a href="{% url 'blog:about' %}" class="mr-5 hover:text-purple-900 text-xl">About</a
+          <a
+            href="{% url 'blog:about' %}"
+            class="mr-5 hover:text-purple-900 text-xl"
+            >About</a
           >
           <a
             href="https://linkedin.com"
             class="mr-5 hover:text-purple-500 text-xl"
             >LinkedIn</a
           >
-          <a href="https://github.com" class="mr-5 hover:text-purple-500 text-xl"
+          <a
+            href="https://github.com"
+            class="mr-5 hover:text-purple-500 text-xl"
             >Github</a
           >
         </nav>
@@ -101,10 +108,20 @@
           >
           {% else %}
           <a href="{% url 'login' %}" class="mr-5 hover:text-green-500 text-lg"
-            ><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-          >
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              /></svg
+          ></a>
         </nav>
         {% endif %}
       </div>

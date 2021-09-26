@@ -12,7 +12,7 @@
 
 {% endif %}
 <p class="">{{ post.Text|safe|linebreaksbr }}</p>
-{%if user.is_authenticated %}
+{% if user.is_authenticated %}
 <a class="" href="{% url 'blog:post_edit' pk=post.pk %}">
   <span
     >Edit
@@ -48,7 +48,10 @@
       /></svg></span
 ></a>
 {% endif %}
-<a class="button" href="{% url 'blog:add_comment_to_post' pk=post.pk %}"
+<a
+  class="button"
+  type="submit"
+  href="{% url 'blog:add_comment_to_post' pk=post.pk %}"
   >Add Comment</a
 >
 <div class="container">

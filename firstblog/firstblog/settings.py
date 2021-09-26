@@ -123,6 +123,9 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGIN_REDIRECT_URL = 'blog/post/list'
+
+# tailwind-django config
 TAILWIND_APP_NAME = 'Colors'
 
 INTERNAL_IPS = [
