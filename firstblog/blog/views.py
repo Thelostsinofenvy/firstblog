@@ -33,6 +33,7 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
 
+
 # creating a post
 
 
@@ -100,16 +101,17 @@ def post_publish(request, pk):
 
 @login_required
 def comment_approve(request, pk):
-    comment = get_object_or_404(request, pk=pk)
+    comment = get_object_or_404(Comment, pk=pk)
     comment.approve()
-    return redirect('post_detail', pk=comment.post.pk)
+    return redirect('blog:post_detail', pk=comment.post.pk)
 
 # removing comments
 
 
 @login_required
 def comment_remove(request, pk):
-    comment = get_object_or_404(request, pk=pk)
+    print('ok')
+    comment = get_object_or_404(Comment, pk=pk)
     post_pk = comment.post.pk
     comment.delete()
-    return redirect('post_detail', pk=post_pk)
+    return redirect('blog:post_detail', pk=post_pk)

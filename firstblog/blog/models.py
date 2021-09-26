@@ -35,7 +35,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    posted_comments = models.ForeignKey(
+    post = models.ForeignKey(
         Post, related_name='comments', on_delete=CASCADE)  # comments for the posts.
     author = models.CharField(max_length=200, null=True)
     Text = models.TextField(null=True)
