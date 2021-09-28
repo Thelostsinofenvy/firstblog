@@ -1,7 +1,8 @@
 {% load static %} {% load tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     {% tailwind_css %}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,131 +10,53 @@
     <title>Blog</title>
     <!-- medium editor -->
     <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css"
-      type="text/css"
-      media="screen"
-      charset="utf-8"
-    />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8" />
 
     <link rel="stylesheet" href="{% static 'styles.css' %} " />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
     <!--test font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header
-      class="
-        text-grey-700
-        body-font
-        border-b border-gray-300
-        bg-gradient-to-r
-        from-green-400
-        to-blue-500
-        shadow-md
-      "
-    >
-      {% if user.is_authenticated %}
-      <div
-        class="
-          container
-          mx-auto
-          flex flex-wrap
-          p-5
-          flex-col
-          md:flex-row
-          items-center
-          text-grey-500
-        "
-      >
-        <nav class="flex title-font font-medium items-center mb-4 md:mb-0">
-          <a
-            class="mr-5 hover:text-purple-900 text-3xl"
-            href="{% url 'blog:post_list' %}"
-            >My Blog</a
-          >
-          <a
-            href="{% url 'blog:about' %}"
-            class="mr-5 hover:text-purple-900 text-xl"
-            >About</a
-          >
-          <a
-            href="https://linkedin.com"
-            class="mr-5 hover:text-purple-500 text-xl"
-            >LinkedIn</a
-          >
-          <a
-            href="https://github.com"
-            class="mr-5 hover:text-purple-500 text-xl"
-            >Github</a
-          >
+    <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="">
+        {% if user.is_authenticated %}
+        <nav class="">
+            <div class="mx-auto">
+                <div class="flex justify-between bg-blue-500 py-4 px-4 bg-gradient-to-r from-green-400 to-blue-500">
+                    <div class="flex justify-between">
+                        <a class="text-red-800 mr-4" href="{% url 'blog:post_list' %}">My Blog</a>
+                        <a class="mr-4" href="{% url 'blog:about' %}" class="">About</a>
+                        <a class="mr-4" href="https://linkedin.com" class="">LinkedIn</a>
+                        <a class="mr-4" href="https://github.com" class="">Github</a>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <a class="mr-4" href="{% url 'blog:post_new' %}" class=>New Post</a>
+                        <a class="mr-4" href="{% url 'blog:post_draft_list' %}" class="">Drafts</a>
+                        <a class="mr-4" href="{% url 'logout' %}" class="">Logout</a>
+                        <a class="mr-4" href="#" class="">Welcome:{{user.username}}</a> {% else %}
+                        <a class="mr-4" href="{% url 'login' %}" class="">Login</a> {% endif %}
+                    </div>
+                </div>
+            </div>
         </nav>
-        <nav
-          class="
-            md:ml-auto
-            flex flex-wrap
-            items-center
-            text-base
-            justify-center
-          "
-        >
-          <a
-            href="{% url 'blog:post_new' %}"
-            class="mr-5 hover:text-green-500 text-xl"
-            >New Post</a
-          >
-          <a
-            href="{% url 'blog:post_draft_list' %}"
-            class="mr-5 hover:text-green-500 text-xl"
-            >Drafts</a
-          >
-          <a href="{% url 'logout' %}" class="mr-5 hover:text-green-500 text-xl"
-            >Logout</a
-          >
-          <a href="#" class="mr-5 hover:text-green-500 text-xl"
-            >Welcome:{{user.username}}</a
-          >
-          {% else %}
-          <a href="{% url 'login' %}" class="mr-5 hover:text-green-500 text-lg"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              /></svg
-          ></a>
-        </nav>
-        {% endif %}
-      </div>
     </header>
 
     <!-- Content Block -->
     <div class="container mx-auto">
-      <div class="grid-rows-1">
-        <div class="md-8">
-          <div class="blog_posts">{% block content %} {% endblock %}</div>
+        <div class="grid-rows-1">
+            <div class="md-8">
+                <div class="blog_posts">{% block content %} {% endblock %}</div>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>
