@@ -24,25 +24,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet" />
 </head>
 
-<body>
-    <header class="bg-blue-500 py-4 px-4 bg-gradient-to-r from-green-400 to-blue-500">
-        {% if user.is_authenticated %}
+<body class="bg-opacity-20 bg-purple-200">
+    <header class="mx-auto bg-gradient-to-r from-purple-400 via-pink-400 to-red-500 p-6 text-white md-rounded">
+             {% if user.is_authenticated %}
         <nav class="">
-            <div class="mx-auto ">
-                <div class="flex justify-between ">
-                    <div class="flex justify-between">
-                        <a class="text-red-800 mr-4" href="{% url 'blog:post_list' %}">My Blog</a>
-                        <a class="mr-4" href="{% url 'blog:about' %}" class="">About</a>
-                        <a class="mr-4" href="https://linkedin.com" class="">LinkedIn</a>
-                        <a class="mr-4" href="https://github.com" class="">Github</a>
+            <div class="container mx-auto px-12 sm:items-stretch sm:justify-start flex-shrink-0">
+                <div class="flex md:justify-between ">
+                    <div class="md:flex-row">
+                        <a class=" mr-4 bg-gray-900 rounded-md px-3 py-2 text-lg font-medium" href="{% url 'blog:post_list' %}">My Blog</a>
+                        <a class="mr-4 py-2  text-gray-900 text-lg font-medium hover:text-white rounded-md  "href="{% url 'blog:about' %}" class="">About</a>
+                        <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="https://linkedin.com" class="">LinkedIn</a>
+                        <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="https://github.com" class="">Github</a>
                     </div>
 
-                    <div class="flex justify-between">
-                        <a class="mr-4" href="{% url 'blog:post_new' %}" class=>New Post</a>
-                        <a class="mr-4" href="{% url 'blog:post_draft_list' %}" class="">Drafts</a>
-                        <a class="mr-4" href="{% url 'logout' %}" class="">Logout</a>
-                        <a class="mr-4" href="#" class="">Welcome:{{user.username}}</a> {% else %}
-                        <a class="mr-4" href="{% url 'login' %}" class="">Login</a> {% endif %}
+                    <div class="md:flex-row">
+                        <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="{% url 'blog:post_new' %}" class=>New Post</a>
+                        <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="{% url 'blog:post_draft_list' %}" class="">Drafts</a>
+                        <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="{% url 'logout' %}" class="">Logout</a>
+                        <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="#" class="">Welcome:{{user.username}}</a> {% else %}
+                        <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="{% url 'login' %}" class="">Login</a> {% endif %}
                     </div>
                 </div>
             </div>
