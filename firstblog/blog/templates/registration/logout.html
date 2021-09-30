@@ -1,6 +1,8 @@
 {% extends "blog/base.html" %} {% block content %}
-<div><h1>Successfully Logged Out!</h1></div>
 <div>
-  <a class="btn btn-green" href="{% url 'login' %}">Login</a>
+    <h1>Successfully Logged Out!</h1>
+</div>
+<div>
+    <a class="btn btn-blue" href="{% url 'login' %}">Login</a>
 </div>
 {% endblock content %}

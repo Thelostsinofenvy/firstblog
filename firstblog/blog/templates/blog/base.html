@@ -25,11 +25,11 @@
 </head>
 
 <body>
-    <header class="">
+    <header class="bg-blue-500 py-4 px-4 bg-gradient-to-r from-green-400 to-blue-500">
         {% if user.is_authenticated %}
         <nav class="">
-            <div class="mx-auto">
-                <div class="flex justify-between bg-blue-500 py-4 px-4 bg-gradient-to-r from-green-400 to-blue-500">
+            <div class="mx-auto ">
+                <div class="flex justify-between ">
                     <div class="flex justify-between">
                         <a class="text-red-800 mr-4" href="{% url 'blog:post_list' %}">My Blog</a>
                         <a class="mr-4" href="{% url 'blog:about' %}" class="">About</a>
