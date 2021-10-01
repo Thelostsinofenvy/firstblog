@@ -115,3 +115,12 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('blog:post_detail', pk=post_pk)
+
+# redirect to login page.
+
+
+def redir(request):
+    if request.user.is_authenticated:
+        return redirect('blog:post_list')
+    else:
+        return redirect('login')
