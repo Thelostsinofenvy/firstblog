@@ -1,39 +1,175 @@
 {% extends "blog/base.html" %} {% block content %}
-<div>
-  <h1>{{post.title}}</h1>
-</div>
 
-{% if post.publish_date %}
-<div>
-  <h4>{{post.publish_date}}</h4>
-</div>
-{% else %}
-<a class="" href="{% url 'blog:post_publish' pk=post.pk %}">Publish</a>
+<div class="border-2 border-gray-200 sm:rounded-lg my-4 px-6">
+  <div class="md:container md:mx-auto mt-5">
+    <h1 class="text-gray-900 font-medium font-nunito font text-2xl">
+      {{post.title}}
+    </h1>
+  </div>
 
-{% endif %}
-<p class="">{{ post.Text|safe|linebreaksbr }}</p>
-{% if user.is_authenticated %}
-<a class="" href="{% url 'blog:post_edit' pk=post.pk %}"> Edit </a>
-<a class="" href="{% url 'blog:post_remove' pk=post.pk %}">Delete ></a>
-{% endif %}
-<a
-  class="button"
-  type="submit"
-  href="{% url 'blog:add_comment_to_post' pk=post.pk %}"
-  >Add Comment</a
->
-<div class="container">
-  {% for comment in post.comments.all %} <br />
-  {% if user.is_authenticated or comment.approved_comment %}
-  {{comment.created_date}} {% if not comment.approved_comment %}
-  <a class="" href="{% url 'blog:comment_remove' pk=comment.pk %}">Delete</a>
-  <a class="" href="{% url 'blog:comment_approve' pk=comment.pk %}">Approve</a>
+  {% if post.publish_date %}
+  <div>
+    <h4>{{ post.publish_date }}</h4>
+  </div>
+  {% else %}
+  <div class="my-2">
+    <a
+      class="
+        px-2
+        py-1
+        my-2
+        mb-4
+        text-md
+        font-semibold
+        rounded-full
+        bg-gradient-to-r
+        from-purple-300
+        to-red-300
+        text-grey-800
+        w-24
+        shadow-md
+        hover:text-white
+      "
+      href="{% url 'blog:post_publish' pk=post.pk %}"
+      >Publish</a
+    >
+  </div>
+
   {% endif %}
-  <p>{{comment.Text|safe|linebreaks}}</p>
-  <p>Posted By:{{comment.author}}</p>
-  {% endif %} {% empty %}
-  <p>No comments posted</p>
-  {% endfor %}
-</div>
+  <p class="font-semibold">Comment: {{ post.Text|safe|linebreaksbr }}</p>
+  {% if user.is_authenticated %}
+  <div class="flex justify-start space-x-4">
+    <div
+      class="
+        px-3
+        py-1
+        my-2
+        mb-4
+        text-md
+        font-semibold
+        rounded-full
+        bg-gradient-to-r
+        from-purple-300
+        to-red-300
+        text-grey-800
+        w-14
+        shadow-md
+        hover:text-white
+      "
+    >
+      <a class="font-semibold" href="{% url 'blog:post_edit' pk=post.pk %}">
+        Edit
+      </a>
+    </div>
+    <div
+      class="
+        px-2
+        py-1
+        my-2
+        mb-4
+        text-md
+        font-semibold
+        rounded-full
+        bg-gradient-to-r
+        from-purple-300
+        to-red-300
+        text-grey-800
+        w-16
+        shadow-md
+        hover:text-white
+      "
+    >
+      <a class="font-semibold" href="{% url 'blog:post_remove' pk=post.pk %}"
+        >Delete
+      </a>
+    </div>
+  </div>
+  {% endif %}
+  <div
+    class="
+      px-3
+      py-1
+      my-2
+      mb-4
+      font-semibold
+      rounded-md
+      bg-gradient-to-r
+      from-purple-300
+      to-red-300
+      text-grey-800
+      w-32
+      shadow-md
+      hover:text-white
+    "
+  >
+    <a
+      class=""
+      type="submit"
+      href="{% url 'blog:add_comment_to_post' pk=post.pk %}"
+      >AddComment</a
+    >
+  </div>
+  <div class="container font-semibold">
+    <div class="-my-2 font-semibold">
+      {% for comment in post.comments.all %} <br />
+      {% if user.is_authenticated or comment.approved_comment %}
+      {{comment.created_date}}
+    </div>
+    {% if not comment.approved_comment %}
 
+    <div class="my-2 font-semibold">
+      <p>{{comment.Text|safe|linebreaks}}</p>
+    </div>
+    <a
+      class="
+        px-2
+        py-1
+        my-3
+        mb-4
+        mr-4
+        text-md
+        font-semibold
+        rounded-full
+        bg-gradient-to-r
+        from-purple-300
+        to-red-300
+        text-grey-800
+        w-16
+        shadow-md
+        hover:text-white
+      "
+      href="{% url 'blog:comment_remove' pk=comment.pk %}"
+      >Delete</a
+    >
+    <a
+      class="
+        px-2
+        py-1
+        mr-4
+        mb-4
+        text-md
+        font-semibold
+        rounded-full
+        bg-gradient-to-r
+        from-purple-300
+        to-red-300
+        text-grey-800
+        w-16
+        shadow-md
+        hover:text-white
+      "
+      href="{% url 'blog:comment_approve' pk=comment.pk %}"
+      >Approve</a
+    >
+    {% endif %}
+    <div class="my-2 font-semibold">
+      <p>Posted By:{{comment.author}}</p>
+    </div>
+    {% endif %} {% empty %}
+    <div class="font-semibold mb-2">
+      <p>No Comments Posted</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock content %}

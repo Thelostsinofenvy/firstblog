@@ -1,9 +1,31 @@
 {% extends "blog/base.html" %} {% block content %}
 <form action="" method="post">
   {% csrf_token %}
-  <p>Are you sure you want to delete {{object}} ?</p>
-
-  <input class="" type="submit" value="Confirm" />
+  <div class="font-semibold mt-4 text-xl">
+    <p>Are you sure you want to delete {{object}} ?</p>
+  </div>
+  <div class="">
+    <input
+      class="
+        px-2
+        py-1
+        my-2
+        mb-4
+        text-md
+        font-semibold
+        rounded-full
+        bg-gradient-to-r
+        from-purple-300
+        to-red-300
+        text-grey-800
+        w-20
+        shadow-md
+        hover:text-white
+      "
+      type="submit"
+      value="Confirm"
+    />
+  </div>
 </form>
 
 {% endblock content %}
