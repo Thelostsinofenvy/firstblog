@@ -15,29 +15,28 @@
     <link rel="stylesheet" href="{% static 'styles.css' %} " />
 
     <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
-    <!--test font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet" />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Explora&family=Nunito:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body class="bg-opacity-20 bg-purple-200">
     <header class="mx-auto bg-gradient-to-r from-purple-400 via-pink-400 to-red-500 p-6 text-white md-rounded  md:shadow-xl">
              {% if user.is_authenticated %}
         <nav class="">
-            <div class="container mx-auto px-12 sm:items-stretch sm:justify-start flex-shrink-0">
-                <div class="flex md:justify-between ">
-                    <div class="md:flex-row">
+            <div class="container mx-auto px-12 sm:items-stretch sm:justify-start flex-shrink-0 font-nunito">
+                <div class="flex md:justify-between">
+                    <div class="md:flex-row mx-auto">
                         <a class=" mr-4 bg-gray-900 rounded-md px-3 py-2 text-lg font-medium" href="{% url 'blog:post_list' %}">My Blog</a>
                         <a class="mr-4 py-2  text-gray-900 text-lg font-medium hover:text-white rounded-md  "href="{% url 'blog:about' %}" class="">About</a>
                         <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="https://linkedin.com" class="">LinkedIn</a>
                         <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="https://github.com" class="">Github</a>
                     </div>
 
-                    <div class="md:flex-row">
+                    <div class="md:flex-row mx-auto">
                         <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="{% url 'blog:post_new' %}" class=>New Post</a>
                         <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="{% url 'blog:post_draft_list' %}" class="">Drafts</a>
                         <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="{% url 'logout' %}" class="">Logout</a>
@@ -50,10 +49,10 @@
     </header>
 
     <!-- Content Block -->
-    <div class="container mx-auto">
-        <div class="grid-rows-1">
-            <div class="md-8">
-                <div class="blog_posts">{% block content %} {% endblock %}</div>
+    <div class="container ">
+        <div class="">
+            <div class="ml-8 md:ml-16 lg:ml-32">
+                <div class="">{% block content %} {% endblock %}</div>
             </div>
         </div>
     </div>
