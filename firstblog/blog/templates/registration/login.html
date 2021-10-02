@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %} {% block content %}
-<div class="container">
+<div class="container font-semibold mt-4">
   <h2>Please Login:</h2>
   <h3>Must be a Superuser!</h3>
 
@@ -7,10 +7,34 @@
   <p>Your username and password didn't match please try again!</p>
   {% endif %}
 
-  <form method="POST" action="{% url 'login' %}">
-    {% csrf_token %} {{form.as_p}}
-    <input class="btn btn-blue" type="submit" class="" />
-    <input type="hidden" name="next" value="{{next}}" />
+  <div class="">
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %} 
+      <div class="block text-gray-700 text-md font-bold mb-2 my-4 space-y-2">
+      {{form.as_p}}
+      <input
+       class="
+        px-2
+        py-1
+        my-2
+        mb-4
+        text-md
+        font-semibold
+        rounded-full
+        bg-gradient-to-r
+        from-purple-300
+        to-red-300
+        text-grey-800
+        w-24
+        shadow-md
+        hover:text-white
+      "
+       type="submit"
+       class=""
+     />
+      <input type="hidden" name="next" value="{{next}}" />
+      </div>
+    </div>
   </form>
 </div>
 {% endblock %}

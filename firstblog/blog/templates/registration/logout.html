@@ -1,8 +1,27 @@
 {% extends "blog/base.html" %} {% block content %}
-<div>
-    <h1>Successfully Logged Out!</h1>
+<div class="mb-4 mt-4 font-semibold text-xl">
+  <h1>Successfully Logged Out!</h1>
 </div>
-<div>
-    <a class="btn btn-blue" href="{% url 'login' %}">Login</a>
+<div class="">
+  <a
+    class="
+      px-3
+      py-3
+      my-2
+      mb-4
+      text-lg
+      font-semibold
+      rounded-md
+      bg-gradient-to-r
+      from-purple-300
+      to-red-300
+      text-grey-800
+      w-24
+      shadow-md
+      hover:text-white
+    "
+    href="{% url 'login' %}"
+    >Login</a
+  >
 </div>
 {% endblock content %}

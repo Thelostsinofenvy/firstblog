@@ -1,9 +1,30 @@
 {% extends "blog/base.html" %} {% block content %}
-<h1>New Post</h1>
-
-<form class="" method="POST">
-  {% csrf_token %} {{form.as_p}}
-  <button class="" type="submit">Save</button>
+<div class="text-2xl font-semibold mb-4 mt-4">
+  <h1>New Post</h1>
+</div>
+<form class="block text-gray-700 text-md font-bold mb-2 my-4" method="POST">
+  <div class="flex-col space-y-2">{% csrf_token %} {{form.as_p}}</div>
+  <button
+    class="
+      px-2
+      py-1
+      my-4
+      mb-4
+      text-md
+      font-semibold
+      rounded-full
+      bg-gradient-to-r
+      from-purple-300
+      to-red-300
+      text-grey-800
+      w-24
+      shadow-md
+      hover:text-white
+    "
+    type="submit"
+  >
+    Save
+  </button>
 </form>
 
 <script>

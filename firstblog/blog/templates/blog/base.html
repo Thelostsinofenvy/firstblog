@@ -41,7 +41,11 @@
                         <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="{% url 'blog:post_draft_list' %}" class="">Drafts</a>
                         <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="{% url 'logout' %}" class="">Logout</a>
                         <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="#" class="">Welcome:{{user.username}}</a> {% else %}
-                        <a class="mr-4 py-2 text-gray-900 text-lg font-medium hover:text-white" href="{% url 'login' %}" class="">Login</a> {% endif %}
+                        <div class="flex justify-items-start ">
+                            <div class="mx-8">
+                                <a class="mr-4 py-2 text-gray-900 text-2xl font-Nunito-medium hover:text-white" href="{% url 'login' %}" class="">Login</a> {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
