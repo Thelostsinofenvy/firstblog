@@ -1,8 +1,33 @@
 {% extends "blog/base.html" %} {% block content %}
-<h1>New Comment</h1>
-<form method="POST">
-  {% csrf_token %} {{form.as_p}}
-  <button class="" type="submit" value="">Post Comment</button>
+
+  <div class="text-lg font-bold my-2 text-gray-700">
+    <h1>New Comment</h1>
+    <form class="block text-gray-700 text-md font-semibold mb-2 my-4" method="POST">
+      <div class="flex-col space-y-2">
+      {% csrf_token %} {{form.as_p}}
+      </div>
+  </div>
+    <div class="
+      px-2
+      py-1
+      my-4
+      mb-4
+      text-md
+      font-semibold
+      rounded-md
+      bg-gradient-to-r
+      from-purple-300
+      to-red-300
+      text-grey-800
+      w-24
+      shadow-md
+      hover:text-white
+    "
+    type="submit"
+    value=""
+  >
+    Post Comment
+  </button>
 </form>
 
 {% endblock content %}
